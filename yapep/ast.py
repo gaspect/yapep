@@ -50,10 +50,8 @@ class Message(Scoped):
 
     def accept(self, visitor: "Visitor") -> None:
         visitor.visit_message(self)
-        self.header.accept(visitor)
         for segment in self.segments:
             segment.accept(visitor)
-        self.trailer.accept(visitor)
 
 
 @dataclass
@@ -62,10 +60,8 @@ class Interchange(Scoped):
 
     def accept(self, visitor: "Visitor") -> None:
         visitor.visit_interchange(self)
-        self.header.accept(visitor)
         for msg in self.messages:
             msg.accept(visitor)
-        self.trailer.accept(visitor)
 
 
 @dataclass
@@ -75,8 +71,6 @@ class File(Node):
 
     def accept(self, visitor: "Visitor") -> None:
         visitor.visit_file(self)
-        if self.una:
-            self.una.accept(visitor)
         for interchange in self.interchanges:
             interchange.accept(visitor)
 

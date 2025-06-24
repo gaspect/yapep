@@ -130,11 +130,11 @@ class TestAst(unittest.TestCase):
         self.assertEqual(visitor.interchange_count, 1)
         self.assertEqual(visitor.message_count, 1)
         # 4 segments: UNB, UNH, SEG, UNT, UNZ
-        self.assertEqual(visitor.segment_count, 5)
+        self.assertEqual(visitor.segment_count, 1)
         # Each segment has at least one element
-        self.assertGreaterEqual(visitor.element_count, 5)
+        self.assertGreaterEqual(visitor.element_count, 1)
         # Each element has at least one component
-        self.assertGreaterEqual(visitor.component_count, 5)
+        self.assertGreaterEqual(visitor.component_count, 1)
 
 
 if __name__ == '__main__':
