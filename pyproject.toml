@@ -1,0 +1,6 @@
+[project]
+name = "yapep"
+version = "0.1.0"
+description = "Yet Another Python EDI Parser - A lightweight, flexible library for parsing EDI files using a tree-based approach with Visitor pattern"
+requires-python = ">=3.14"
+dependencies = []
